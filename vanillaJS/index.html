@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="./ComponentLibrary.umd.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Elay Gelbart Vanilla JS</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elay Gelbart Vanilla JS</h1>
+    <p>
+        Implementing Vanilla JS in a web page It's not that hard. </br>
+        <span id="component-link">**Here**</span> is a Component Link to My Github Profile </br>
+        <span id="component-btn">**Here **</span> is a Component Button to my LinkedIn Profile with JSX  
+    </p>
+    <script type="text/babel">
+        const linkRoot = ReactDOM.createRoot(document.getElementById('component-link'));
+        const linkElement = React.createElement(ComponentLibrary.Link, {
+            href: 'https://github.com/ElayGelbart',
+            text: 'Github',
+            color: 'blue'
+        });
+        linkRoot.render(linkElement);   
+        
+        const btnRoot = ReactDOM.createRoot(document.getElementById('component-btn'));
+        btnRoot.render(
+            <ComponentLibrary.Button 
+            text="This Button" 
+            onClick={()=>{
+                alert('You Clicked On Me')
+                window.open('https://www.linkedin.com/in/elaygelbart/', '_blank')
+            }
+        }/>)
+    </script>
+</body>
+</html>
